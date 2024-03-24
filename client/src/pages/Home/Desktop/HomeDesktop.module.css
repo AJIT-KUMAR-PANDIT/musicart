@@ -1,0 +1,405 @@
+.container {
+    margin-top: 12vh;
+    width: 100vw;
+    padding: 0 2vw 0 2vw;
+}
+
+.firstBox {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titleNav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5vh;
+}
+
+.titleNav>img {
+    height: 90%;
+}
+
+.titleNav>span {
+    font-family: Roboto;
+    font-size: 2.3rem;
+    font-weight: 600;
+    letter-spacing: 0em;
+    color: rgba(46, 0, 82, 1);
+}
+
+.titleNav>a {
+    margin-left: 1vw;
+    padding-top: 4%;
+    text-decoration: none;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: rgba(0, 0, 0, 1)
+}
+
+.cart {
+    width: max-content;
+    height: 70%;
+    padding: 1vh 3vh 1vh 3vh;
+    background-color: rgba(29, 112, 0, 1);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    font-family: Roboto;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.saleBanner {
+    margin-top: 5vh;
+    width: 100%;
+    height: 32vh;
+    background: linear-gradient(90deg, #7286B4 0%, #E794CE 100%);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.saleBanner>div {
+    padding-left: 8vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Roboto;
+    font-weight: 500;
+    letter-spacing: 0em;
+}
+
+.saleBanner>div>h1 {
+    font-size: 3.5vw;
+    color: rgba(46, 0, 82, 1)
+}
+
+.saleBanner>div>button {
+    width: 33%;
+    height: 20%;
+    border: none;
+    border-radius: 50px;
+    background-color: rgba(46, 0, 82, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.5vw;
+}
+
+.saleBanner>img {
+    position: relative;
+    bottom: 20%;
+    height: 120%;
+}
+
+.searchBox {
+    margin-top: 5vh;
+    width: 100%;
+    height: 8vh;
+    border: 3px solid rgba(200, 200, 200, 1);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 1% 1.5% 1% 1.5%;
+    gap: 1vh;
+}
+
+.searchBox>input {
+    border: none;
+    width: 100%;
+    outline: none;
+    font-family: Roboto;
+    font-size: 1.8vw;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: rgba(0, 0, 0, 1)
+}
+
+.searchBox>img {
+    height: 5.5vh;
+}
+
+.filterBox {
+    width: 100%;
+    height: 6vh;
+    overflow-x: visible;
+    overflow-y: hidden;
+    margin-top: 4vh;
+    display: flex;
+    align-items: center;
+}
+
+.listStyleBox {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 0.5vw;
+}
+
+.listStyleBox>img {
+    height: 80%;
+    cursor: pointer;
+}
+
+.filterSelectBox {
+    width: 100%;
+    height: 100%;
+    margin-left: 1vw;
+    margin-right: 5vw;
+    display: flex;
+    gap: 1vh;
+}
+
+
+.filterSelectBox>select {
+    padding: 0.5% 0% 0.5% 2%;
+    height: 100%;
+    width: 15vw;
+    font-family: Roboto;
+    font-size: 1.3vw;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    background-color: rgba(217, 217, 217, 1);
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('../../../assets/dropDown.svg');
+    background-repeat: no-repeat;
+    background-position: right 7% center;
+    background-position-y: center;
+    cursor: pointer;
+}
+
+.filterSelectBox>select option {
+    background-color: rgba(255, 255, 255, 1);
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.sortBox {
+    width: 15vw;
+    height: 100%;
+    align-self: flex-end;
+    border: 2px solid rgba(225, 225, 225, 1);
+    border-radius: 50px;
+    padding: 0.5% 2% 0.5% 2%;
+    font-family: Roboto;
+    font-size: 1.3vw;
+    font-weight: 400;
+    letter-spacing: 0em;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sortBox>select {
+    padding-right: 15%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 1);
+    font-family: Roboto;
+    font-size: 1.3vw;
+    font-weight: 400;
+    letter-spacing: 0em;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('../../../assets/dropDown.svg');
+    background-repeat: no-repeat;
+    background-position: right 2% center;
+    cursor: pointer;
+}
+
+.sortBox>select option {
+    background-color: rgba(255, 255, 255, 1);
+    font-size: 0.8rem;
+}
+
+.productContainerGrid {
+    margin-top: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2vw;
+}
+
+.productContainerGrid>div {
+    width: calc(24% - 10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    cursor: pointer;
+}
+
+.productImg {
+    width: 100%;
+    height: 40vh;
+    background-color: rgba(212, 229, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.productImg img:first-child {
+    height: 25%;
+    position: absolute;
+    bottom: 0;
+    left: 44%;
+    cursor: pointer
+}
+
+.productImg>img {
+    height: 80%;
+    width: 80%;
+}
+
+.productSpec {
+    display: flex;
+    flex-direction: column;
+}
+
+.productTitle {
+    font-family: Roboto;
+    font-size: 2vw;
+    font-weight: 600;
+    letter-spacing: 0em;
+    color: rgba(0, 0, 0, 1)
+}
+
+.productPrice,
+.productType {
+    font-family: Roboto;
+    font-size: 1.5vw;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+
+.productContainerList {
+    margin-top: 10vh;
+    width: 100%;
+    height: 100%;
+}
+
+.singleProductBox {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    margin-bottom: 10vh;
+}
+
+.imgDiv {
+    position: relative;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(212, 229, 255, 1);
+}
+
+.imgDiv>img:first-child {
+    width: 80%;
+    height: 80%;
+}
+
+.cartProductImg {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+
+.productSpecLIst {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+    font-family: Roboto;
+    letter-spacing: 0em;
+}
+
+.productListTitle {
+    font-size: 2.7vw;
+    font-weight: 600
+}
+
+.shortSpec,
+.colorType,
+.productListPrice {
+    font-size: 1.4vw;
+    font-weight: 500;
+}
+
+
+.productSpecLIst>button {
+    margin-top: 1%;
+    border: none;
+    border-radius: 50px;
+    color: rgba(255, 255, 255, 1);
+    width: 20%;
+    height: 20%;
+    background-color: rgba(46, 0, 82, 1);
+    font-family: Roboto;
+    font-size: 1.6vw;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.footer {
+    margin-top: 15vh;
+}
+
+.noProductFound {
+    width: 100vw;
+    font-family: Roboto;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+@media (max-width:600px) {
+    .container {
+        display: none;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .header {
+        display: none;
+    }
+}

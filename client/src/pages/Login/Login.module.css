@@ -1,0 +1,224 @@
+.container {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.container>span {
+    display: none;
+}
+
+.titleDesktop {
+    display: flex;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0em;
+    color: rgba(46, 0, 82, 1);
+    gap: 1vh;
+}
+
+.titleDesktop>img {
+    height: 10vh;
+}
+
+
+.titleMobile {
+    display: none;
+}
+
+
+.form {
+    width: 40vw;
+    border: 3px solid rgba(217, 217, 217, 1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 1% 2% 1% 2%;
+    gap: 2vh;
+}
+
+.form>h1 {
+    font-family: Roboto;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: rgba(0, 0, 0, 1)
+}
+
+.form>div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+}
+
+.form>div>span {
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0em;
+    color: rgba(0, 0, 0, 1)
+}
+
+.form>span {
+    font-family: Roboto;
+    text-align: justify;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: rgba(0, 0, 0, 1);
+}
+
+.form>div>input {
+    height: 6vh;
+    border: none;
+    border: 2px solid rgba(182, 182, 182, 1);
+    border-radius: 5px;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0em;
+}
+
+.form>button {
+    border: none;
+    border-radius: 5px;
+    height: 6vh;
+    background-color: rgba(46, 0, 82, 1);
+    font-family: Roboto;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+
+.newToMusic {
+    display: flex;
+    width: 40vw;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2vw;
+}
+
+.newToMusic>div {
+    border-radius: 5px;
+    height: 2px;
+    width: 100%;
+    background-color: rgba(189, 189, 189, 1)
+}
+
+.newToMusic>span {
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0em;
+    white-space: nowrap;
+}
+
+.button {
+    border: none;
+    border: 2px solid rgba(189, 189, 189, 1);
+    height: 8vh;
+    width: 40vw;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0em;
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(255, 255, 255, 1);
+    color: #000000;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+}
+
+@media (max-width:600px) {
+    .titleMobile {
+        display: block;
+        width: 100vw;
+    }
+
+    .container>span {
+        display: block;
+        color: rgba(46, 0, 82, 1);
+        font-family: Roboto;
+        font-size: 2rem;
+        font-weight: 400;
+        letter-spacing: 0em;
+        width: 90vw;
+    }
+
+    .container {
+        margin-top: 5vh;
+        height: 80vh;
+        justify-content: center;
+        gap: 1vh;
+    }
+
+    .titleDesktop {
+        display: none;
+    }
+
+    .form {
+        width: 90vw;
+        margin-bottom: 2vh;
+    }
+
+    .form>h1 {
+        font-size: 1.5rem;
+
+    }
+
+    .form>div>span {
+        font-size: 1rem;
+    }
+
+    .form>div>input {
+        width: 100%;
+        height: 5vh;
+        font-size: 1rem;
+    }
+
+    .form>button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .form>span {
+        font-size: 0.8rem;
+    }
+
+    .button {
+        width: 90vw;
+        height: 5vh;
+        font-size: 1rem;
+    }
+
+    .newToMusic {
+        width: 87vw;
+        margin-bottom: 2vh;
+    }
+
+    .newToMusic>span {
+        font-size: 1rem;
+    }
+
+    .newToMusic>div {
+        width: 28%;
+    }
+}

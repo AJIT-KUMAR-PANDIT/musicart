@@ -1,0 +1,69 @@
+.desktopHeader {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(46, 0, 82, 1);
+    font-family: Roboto;
+    font-size: 1.8vw;
+    font-weight: 500;
+    line-height: 1.5vw;
+    letter-spacing: 0em;
+    color: rgba(255, 255, 255, 1);
+    padding: 0 2vw 0 2vw;
+    position: absolute;
+    top: 0;
+}
+
+.mobileHeader {
+    display: none;
+}
+
+.leftBox {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+}
+
+.rightBox>button {
+    border: none;
+    background-color: rgba(46, 0, 82, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.8vw;
+    cursor: pointer;
+}
+
+@media (max-width:600px) {
+    .leftBox {
+        display: none;
+    }
+
+    .middleBox {
+        display: none;
+    }
+
+    .rightBox {
+        display: none;
+    }
+
+    .mobileHeader {
+        display: block;
+        display: flex;
+        align-items: center;
+        gap: 1vw;
+        font-family: Roboto;
+        font-size: 1.5rem;
+        font-weight: 500;
+        letter-spacing: 0em;
+    }
+
+    .mobileHeader>img {
+        height: 7vh;
+    }
+}
+
+.rightBox>a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+}

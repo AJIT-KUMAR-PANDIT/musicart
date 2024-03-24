@@ -1,0 +1,192 @@
+.container {
+    height: fit-content;
+    padding: 3vh 0 8vh 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: scroll;
+    gap: 4vh
+}
+
+.titleDesktop {
+    display: flex;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0em;
+    color: rgba(46, 0, 82, 1);
+    gap: 1vh;
+}
+
+.titleMobile {
+    display: none;
+}
+
+.container>span {
+    display: none;
+}
+
+.titleDesktop>img {
+    height: 10vh;
+}
+
+.form {
+    width: 40vw;
+    border: 3px solid rgba(217, 217, 217, 1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 1% 2% 1% 2%;
+    gap: 2vh;
+}
+
+.form>h1 {
+    font-family: Roboto;
+    font-size: 3vw;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: rgba(0, 0, 0, 1)
+}
+
+.form>div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+}
+
+.form>div>span {
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0em;
+    color: rgba(0, 0, 0, 1)
+}
+
+.form>span {
+    font-family: Roboto;
+    text-align: justify;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: rgba(0, 0, 0, 1);
+}
+
+.form>span:last-child {
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.form>div>input {
+    height: 6vh;
+    border: none;
+    border: 2px solid rgba(182, 182, 182, 1);
+    border-radius: 5px;
+    font-family: Roboto;
+    font-size: 1.5vw;
+    font-weight: 500;
+    letter-spacing: 0em;
+}
+
+.form>button {
+    border: none;
+    border-radius: 5px;
+    height: 6vh;
+    background-color: rgba(46, 0, 82, 1);
+    font-family: Roboto;
+    font-size: 1.8vw;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+
+.bottomPart {
+    font-family: Roboto;
+    font-size: 1rem;
+    line-height: 32px;
+    letter-spacing: 0em;
+    color: rgba(0, 0, 0, 1)
+}
+
+.bottomPart>span {
+    font-weight: 550;
+}
+
+.bottomPart>a {
+    margin-left: 1vh;
+    color: rgba(0, 0, 0, 1)
+}
+
+
+
+@media (max-width:600px) {
+    .titleMobile {
+        display: block;
+        width: 100vw;
+        margin-bottom: 10vh;
+    }
+
+    .container>span {
+        display: block;
+        color: rgba(46, 0, 82, 1);
+        font-family: Roboto;
+        font-size: 2rem;
+        font-weight: 400;
+        letter-spacing: 0em;
+        width: 90vw;
+
+    }
+
+    .container {
+        justify-content: center;
+        gap: 1vh;
+        overflow: scroll;
+    }
+
+    .titleDesktop {
+        display: none;
+    }
+
+    .form {
+        width: 90vw;
+    }
+
+    .form>h1 {
+        font-size: 1.5rem;
+    }
+
+    .form>div>span {
+        font-size: 1rem;
+    }
+
+
+
+    .form>span:last-child {
+        font-size: 0.8rem;
+    }
+
+    .form>div>input {
+        width: 100%;
+        height: 5vh;
+        font-size: 1rem;
+    }
+
+    .form>button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .form>span {
+        font-size: 0.8rem;
+    }
+
+    .bottomPart {
+        font-size: 1rem;
+    }
+}
