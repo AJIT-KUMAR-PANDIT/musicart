@@ -166,7 +166,7 @@ const MobileHome = () => {
         <section className={style.productContainer}>
           {product === null ? (
             <h1 style={{ margin: " auto" }}>
-              <b>Loading...</b>
+              <b>Loading<img src="/loading.webp" alt="loading"  style={{width:"211px"}}/></b>
             </h1>
           ) : product.length === 0 ? (
             <h1 className={style.noProductFound}>No product found</h1>

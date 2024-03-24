@@ -227,7 +227,7 @@ const Home = () => {
                   fontSize: "3vw",
                 }}
               >
-                <h1>Loading...</h1>
+                <h1>Loading<img src="/loading.webp" alt="loading"  style={{width:"211px"}}/></h1>
               </center>
             ) : product.length === 0 ? (
               <h1 className={style.noProductFound}>No product found</h1>
@@ -268,7 +268,7 @@ const Home = () => {
         ) : (
           <section className={style.productContainerList}>
             {product === null ? (
-              <h1>Loading...</h1>
+              <h1>Loading<img src="/loading.webp" alt="loading"  style={{width:"211px"}}/></h1>
             ) : product.length === 0 ? (
               <h1 className={style.noProductFound}>No product found</h1>
             ) : (
