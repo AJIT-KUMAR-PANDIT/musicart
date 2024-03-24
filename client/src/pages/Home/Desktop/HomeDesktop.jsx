@@ -128,7 +128,7 @@ const Home = () => {
             <h1>
               Grab upto 50% off on<br></br> Selected headphones
             </h1>
-            <button>Buy Now</button>
+           
           </div>
           <img src={saleIcon} alt="sale Icon" />
         </section>
@@ -334,6 +334,7 @@ const Home = () => {
         pauseOnHover
         theme="colored"
       />
+       <img src="./chat.svg" alt="curve" style={{zIndex:"1",position:"fixed",bottom:"20px",right:"20px",width:"91px"}}/>
     </>
   );
 };

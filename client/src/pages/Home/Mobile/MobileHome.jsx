@@ -101,7 +101,7 @@ const MobileHome = () => {
             <h1>
               Grab upto 50% off on<br></br> Selected headphones
             </h1>
-            <button>Buy Now</button>
+           
           </div>
           <img src={saleIcon} alt="sale Icon" />
         </section>
@@ -200,6 +200,7 @@ const MobileHome = () => {
         </section>
       </div>
       <MobileNavFooter component={"home"} />
+     
     </>
   );
 };
