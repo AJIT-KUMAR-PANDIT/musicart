@@ -17,6 +17,9 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const redirect = useNavigate();
+  const [login, setLogin] = useState(
+    localStorage.getItem("musicArtToken") ? true : false
+  );
   const cartRef = useRef(null);
   const [view, setView] = useState("list");
   const [product, setProduct] = useState(null);
@@ -112,7 +115,13 @@ const Home = () => {
             <img src={musicIcon} alt="musicIcon" />
             <span>Musicart</span>
             <a href="/">Home</a>
-            <a href="/invoice">Invoice</a>
+            {login ? (
+              <>
+                <a href="/invoice">Invoice</a>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
           <div
             className={style.cart}
@@ -129,7 +138,6 @@ const Home = () => {
             <h1>
               Grab upto 50% off on<br></br> Selected headphones
             </h1>
-           
           </div>
           <img src={saleIcon} alt="sale Icon" />
         </section>
@@ -228,7 +236,15 @@ const Home = () => {
                   fontSize: "3vw",
                 }}
               >
-                <h1>Loading<br/><img src="/loading.webp" alt="loading"  style={{width:"211px"}}/></h1>
+                <h1>
+                  Loading
+                  <br />
+                  <img
+                    src="/loading.webp"
+                    alt="loading"
+                    style={{ width: "211px" }}
+                  />
+                </h1>
               </center>
             ) : product.length === 0 ? (
               <h1 className={style.noProductFound}>No product found</h1>
@@ -269,7 +285,15 @@ const Home = () => {
         ) : (
           <section className={style.productContainerList}>
             {product === null ? (
-              <h1>Loading<br/><img src="/loading.webp" alt="loading"  style={{width:"211px"}}/></h1>
+              <h1>
+                Loading
+                <br />
+                <img
+                  src="/loading.webp"
+                  alt="loading"
+                  style={{ width: "211px" }}
+                />
+              </h1>
             ) : product.length === 0 ? (
               <h1 className={style.noProductFound}>No product found</h1>
             ) : (
@@ -335,7 +359,18 @@ const Home = () => {
         pauseOnHover
         theme="colored"
       />
-       <img src="./chat.svg" alt="curve" style={{zIndex:"1",position:"fixed",bottom:"20px",right:"20px",width:"91px"}} className={style.hideMe}/>
+      <img
+        src="./chat.svg"
+        alt="curve"
+        style={{
+          zIndex: "1",
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          width: "91px",
+        }}
+        className={style.hideMe}
+      />
     </>
   );
 };

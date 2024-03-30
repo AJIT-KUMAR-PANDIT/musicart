@@ -1,11 +1,11 @@
-import InvoiceDesktop from "./Desktop/InvoiceDesktop";
-import InvoiceMobile from "./Mobile/InvoiceMobile";
+import DesktopInvoice from "./DesktopInvoice/DesktopInvoice";
+import MobileInvoice from "./MobileInvoice/MobileInvoice";
 
 const Cart = () => {
   return (
     <>
-      <InvoiceDesktop />
-      <InvoiceMobile />
+      <DesktopInvoice />
+      <MobileInvoice />
     </>
   );
 };

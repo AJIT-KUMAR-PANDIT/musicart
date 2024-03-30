@@ -37,7 +37,10 @@ const MobileNavFooter = (prop) => {
         />
         <span>Cart</span>
       </div>
-      <div onClick={() => setSelected("invoice")}>
+     {
+      (login)?(
+        <>
+         <div onClick={() => setSelected("invoice")}>
         {selected === "invoice" ? <div></div> : ""}
         <img
           src={invoiceIcon}
@@ -48,6 +51,11 @@ const MobileNavFooter = (prop) => {
         />
         <span>invoice</span>
       </div>
+        </>
+      ):(
+        <></>
+      )
+     }
       <div
         onClick={() => {
           if (!login) {
