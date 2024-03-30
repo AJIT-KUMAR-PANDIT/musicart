@@ -1,6 +1,7 @@
 import React from "react";
 import styleInvoiceCard from "./InvoiceCard.module.css";
 import invoice from "../../assets/invoiceLight.svg";
+import lineInvoice from "../../assets/lineInvoice.svg";
 
 const InvoiceCard = () => {
   return (
