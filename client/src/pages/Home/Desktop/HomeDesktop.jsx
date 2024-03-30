@@ -112,6 +112,7 @@ const Home = () => {
             <img src={musicIcon} alt="musicIcon" />
             <span>Musicart</span>
             <a href="/">Home</a>
+            <a href="/invoice">Invoice</a>
           </div>
           <div
             className={style.cart}
@@ -334,7 +335,7 @@ const Home = () => {
         pauseOnHover
         theme="colored"
       />
-       <img src="./chat.svg" alt="curve" style={{zIndex:"1",position:"fixed",bottom:"20px",right:"20px",width:"91px"}}/>
+       <img src="./chat.svg" alt="curve" style={{zIndex:"1",position:"fixed",bottom:"20px",right:"20px",width:"91px"}} className={style.hideMe}/>
     </>
   );
 };

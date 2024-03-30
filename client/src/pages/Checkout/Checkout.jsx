@@ -6,7 +6,6 @@ import MobileNavFooter from "../../components/MobileNavFooter/MobileNavFooter";
 import musicIcon from "../../assets/musicIcon.svg";
 import backIcon from "../../assets/backIcon.svg";
 import { useNavigate, useParams } from "react-router-dom";
-import headphone from "../../assets/headphone.png";
 import { useState, useEffect } from "react";
 import {
   getCartProduct,
@@ -19,11 +18,13 @@ const Checkout = () => {
   const { orderfrom } = useParams();
   const [products, setProducts] = useState(null);
   const [amount, setAmount] = useState(null);
+  const [selectedPayment, setSelectedPayment] = useState("Pay on Delivery");
+  const [imgShowcase, setImgShowcase] = useState(0);
 
   useEffect(() => {
     if (orderfrom === "cart") {
       getCartProduct().then((data) => {
-        if ((data.status = "SUCCESS")) {
+        if (data.status === "SUCCESS") {
           setProducts(data.data);
           const totalAmount = data.data.reduce((acc, item) => {
             return (acc += item.productDetails.price * item.quantity);
@@ -33,17 +34,17 @@ const Checkout = () => {
       });
     } else {
       getProductDetails(orderfrom).then((data) => {
-        if ((data.status = "SUCCESS")) {
+        if (data.status === "SUCCESS") {
           setProducts(data.data);
           setAmount(data.data.price);
         }
       });
     }
-  }, []);
+  }, [orderfrom]);
 
   const handleOrderPlace = async () => {
     if (orderfrom === "cart") {
-      const result = await orderPlace(false, true);
+      const result = await orderPlace(false, selectedPayment === "UPI");
       if (result.status === "SUCCESS") {
         toast.success(result.message);
         setTimeout(() => {
@@ -54,7 +55,7 @@ const Checkout = () => {
       }
     } else {
       const productId = orderfrom;
-      const result = await orderPlace(productId, false);
+      const result = await orderPlace(productId, selectedPayment === "UPI");
       if (result.status === "SUCCESS") {
         toast.success(result.message);
         setTimeout(() => {
@@ -68,7 +69,8 @@ const Checkout = () => {
 
   const handlePayment = (e) => {
     const selectedPaymentMode = e.target.value;
-    
+    setSelectedPayment(selectedPaymentMode);
+
     switch (selectedPaymentMode) {
       case "Pay on Delivery":
         console.log("Selected payment mode: Pay on Delivery");
@@ -83,6 +85,7 @@ const Checkout = () => {
         console.log("Invalid payment mode selected");
     }
   };
+
   return (
     <>
       <Header />
@@ -128,8 +131,12 @@ const Checkout = () => {
             </div>
             <div className={style.paymentMethod}>
               <span>2. Payment method</span>
-              <select className={style.paySelect} name="Mode of payment" onChange={handlePayment}>
-                <option value="Mode of payment">Mode of payment</option>
+              <select
+                className={style.paySelect}
+                name="Mode of payment"
+                onChange={handlePayment}
+                value={selectedPayment}
+              >
                 <option value="Pay on Delivery">Pay on Delivery</option>
                 <option value="UPI">UPI</option>
                 <option value="Card">Card</option>
@@ -137,41 +144,60 @@ const Checkout = () => {
             </div>
             <div className={style.reviewItems}>
               <span>3. Review items and delivery</span>
-              <div style={{ display: "flex" }}>
+              <span style={{ display: "flex" }}>
                 {products === null ? (
                   <h1>Loading...</h1>
                 ) : orderfrom === "cart" ? (
                   products.map((item, index) => {
                     return (
                       <div key={index}>
-                        <img
-                          src={item.productDetails.images[0]}
-                          alt="headphoneIcon"
-                        />
-                        <span>
-                          {item.productDetails.brand}{" "}
-                          {item.productDetails.model}
+                        <span
+                          style={{ width: "111px", height: "111px" }}
+                        >
+                          <img
+                            src={item.productDetails.images[imgShowcase]}
+                            alt="headphoneIcon"
+                            style={{
+                              width: "111px",
+                              height: "111px",
+                              border: "1px solid black",
+                            }}
+                          />
+                          <span>
+                            {item.productDetails.brand}{" "}
+                            {item.productDetails.model}
+                          </span>
+                          <span>Colour: {item.productDetails.color}</span>
+                          <span>{item.availale}</span>
+                          <span>Estimated delivery:</span>
+                          <span>Monday-FREE Standard Delivery</span>
                         </span>
-                        <span>Colour: {item.productDetails.color}</span>
-                        <span>{item.availale}</span>
-                        <span>Estimated delivery:</span>
-                        <span>Monday-FREE Standard Delivery</span>
                       </div>
                     );
                   })
                 ) : (
                   <div>
-                    <img src={products.images[0]} alt="headphoneIcon" />
-                    <span>
-                      {products.brand} {products.model}
+                    <span style={{ width: "111px", height: "111px" }}>
+                      <img
+                        src={products.images[imgShowcase]}
+                        alt="headphoneIcon"
+                        style={{
+                          width: "111px",
+                          height: "111px",
+                          border: "1px solid black",
+                        }}
+                      />
+                      <span>
+                        {products.brand} {products.model}
+                      </span>
+                      <span>Colour: {products.color}</span>
+                      <span>{products.availale}</span>
+                      <span>Estimated delivery:</span>
+                      <span>Monday-FREE Standard Delivery</span>
                     </span>
-                    <span>Colour: {products.color}</span>
-                    <span>{products.availale}</span>
-                    <span>Estimated delivery:</span>
-                    <span>Monday-FREE Standard Delivery</span>
                   </div>
                 )}
-              </div>
+              </span>
             </div>
           </div>
           <div className={style.orderPlaceSideSection}>
@@ -192,7 +218,9 @@ const Checkout = () => {
               </div>
               <div>
                 <span>Order Total:</span>
-                <span>₹{amount !== null ? (amount + 45).toFixed(2) : ""}</span>
+                <span>
+                  ₹{amount !== null ? (amount + 45).toFixed(2) : ""}
+                </span>
               </div>
             </div>
           </div>

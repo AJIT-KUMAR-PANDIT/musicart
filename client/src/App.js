@@ -6,6 +6,7 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import OrderSuccess from "./pages/OrderSuccess/OrderSuccess";
 import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
+import Invoice from "./pages/Invoice/Invoice";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout/:orderfrom" element={<Checkout />} />
           <Route path="/ordersuccess" element={<OrderSuccess />} />
+          <Route path="/invoice" element={<Invoice/>}/>
         </Routes>
       </BrowserRouter>
     </div>

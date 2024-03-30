@@ -402,4 +402,7 @@
     .header {
         display: none;
     }
+    .hideMe{
+        display: none;
+    }
 }
