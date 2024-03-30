@@ -1,4 +1,4 @@
-import style from "./ProductDetailsMobile.module.css";
+import style from "./ProductDetailsPageMobile.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import MobileNavFooter from "../../../components/MobileNavFooter/MobileNavFooter";
 import Header from "../../../components/Header/Header";

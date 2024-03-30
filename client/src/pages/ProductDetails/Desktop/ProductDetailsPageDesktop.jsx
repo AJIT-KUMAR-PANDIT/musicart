@@ -1,4 +1,4 @@
-import style from "./ProductDetailsDesktop.module.css";
+import style from "./ProductDetailsPageDesktop.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import Header from "../../../components/Header/Header";
 import Footer from "../../../components/Footer/Footer";
@@ -13,7 +13,7 @@ import {
   getCartProduct,
 } from "../../../apis/product";
 
-const ProductDetailsDesktop = () => {
+const ProductDetailsPageDesktop = () => {
   const redirect = useNavigate();
   const { id } = useParams();
   const imgRef = useRef(null);
@@ -216,4 +216,4 @@ const ProductDetailsDesktop = () => {
   );
 };
 
-export default ProductDetailsDesktop;
+export default ProductDetailsPageDesktop;

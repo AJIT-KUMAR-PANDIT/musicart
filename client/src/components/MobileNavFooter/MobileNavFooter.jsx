@@ -2,6 +2,7 @@ import HomeIcon from "../../assets/homeIcon.svg";
 import LogoutIcon from "../../assets/logout.svg";
 import LoginIcon from "../../assets/loginIcon.svg";
 import CartIcon from "../../assets/cartIcon.svg";
+import invoiceIcon from "../../assets/invoiceIcon.svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import style from "./MobileNavFooter.module.css";
@@ -35,6 +36,17 @@ const MobileNavFooter = (prop) => {
           }}
         />
         <span>Cart</span>
+      </div>
+      <div onClick={() => setSelected("invoice")}>
+        {selected === "invoice" ? <div></div> : ""}
+        <img
+          src={invoiceIcon}
+          alt="invoiceicon"
+          onClick={() => {
+            redirect("/invoice");
+          }}
+        />
+        <span>invoice</span>
       </div>
       <div
         onClick={() => {

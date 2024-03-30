@@ -1,10 +1,10 @@
-import ProductDetailsDesktop from "./Desktop/ProductDetailsDesktop";
-import ProductDetailsMobile from "./Mobile/ProductDetailsMobile";
+import ProductDetailsPageDesktop from "./Desktop/ProductDetailsPageDesktop";
+import ProductDetailsMobile from "./Mobile/ProductDetailsPageMobile";
 
 const ProductDetails = () => {
   return (
     <>
-      <ProductDetailsDesktop />
+      <ProductDetailsPageDesktop />
       <ProductDetailsMobile />
     </>
   );

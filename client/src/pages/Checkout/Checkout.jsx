@@ -65,6 +65,24 @@ const Checkout = () => {
       }
     }
   };
+
+  const handlePayment = (e) => {
+    const selectedPaymentMode = e.target.value;
+    
+    switch (selectedPaymentMode) {
+      case "Pay on Delivery":
+        console.log("Selected payment mode: Pay on Delivery");
+        break;
+      case "UPI":
+        console.log("Selected payment mode: UPI");
+        break;
+      case "Card":
+        console.log("Selected payment mode: Card");
+        break;
+      default:
+        console.log("Invalid payment mode selected");
+    }
+  };
   return (
     <>
       <Header />
@@ -98,19 +116,28 @@ const Checkout = () => {
             <div className={style.deliveryAddress}>
               <span>1. Delivery address</span>
               <span>
-                Akash Patel <br />
-                104 <br />
-                kk hh nagar, Lucknow <br />
-                Uttar Pradesh 226025
+                <textarea
+                  style={{
+                    width: "235px",
+                    height: "111px",
+                    border: "1px solid black",
+                  }}
+                  className={style.addr}
+                ></textarea>
               </span>
             </div>
             <div className={style.paymentMethod}>
               <span>2. Payment method</span>
-              <span>Pay on delivery(Cash/Card)</span>
+              <select className={style.paySelect} name="Mode of payment" onChange={handlePayment}>
+                <option value="Mode of payment">Mode of payment</option>
+                <option value="Pay on Delivery">Pay on Delivery</option>
+                <option value="UPI">UPI</option>
+                <option value="Card">Card</option>
+              </select>
             </div>
             <div className={style.reviewItems}>
               <span>3. Review items and delivery</span>
-              <div>
+              <div style={{ display: "flex" }}>
                 {products === null ? (
                   <h1>Loading...</h1>
                 ) : orderfrom === "cart" ? (
