@@ -6,6 +6,7 @@ import MobileNavFooter from "../../components/MobileNavFooter/MobileNavFooter";
 import musicIcon from "../../assets/musicIcon.svg";
 import backIcon from "../../assets/backIcon.svg";
 import { useNavigate, useParams } from "react-router-dom";
+import headphone from "../../assets/headphone.png";
 import { useState, useEffect } from "react";
 import {
   getCartProduct,
@@ -18,13 +19,11 @@ const Checkout = () => {
   const { orderfrom } = useParams();
   const [products, setProducts] = useState(null);
   const [amount, setAmount] = useState(null);
-  const [selectedPayment, setSelectedPayment] = useState("Pay on Delivery");
-  const [imgShowcase, setImgShowcase] = useState(0);
 
   useEffect(() => {
     if (orderfrom === "cart") {
       getCartProduct().then((data) => {
-        if (data.status === "SUCCESS") {
+        if ((data.status = "SUCCESS")) {
           setProducts(data.data);
           const totalAmount = data.data.reduce((acc, item) => {
             return (acc += item.productDetails.price * item.quantity);
@@ -34,17 +33,17 @@ const Checkout = () => {
       });
     } else {
       getProductDetails(orderfrom).then((data) => {
-        if (data.status === "SUCCESS") {
+        if ((data.status = "SUCCESS")) {
           setProducts(data.data);
           setAmount(data.data.price);
         }
       });
     }
-  }, [orderfrom]);
+  }, []);
 
   const handleOrderPlace = async () => {
     if (orderfrom === "cart") {
-      const result = await orderPlace(false, selectedPayment === "UPI");
+      const result = await orderPlace(false, true);
       if (result.status === "SUCCESS") {
         toast.success(result.message);
         setTimeout(() => {
@@ -55,7 +54,7 @@ const Checkout = () => {
       }
     } else {
       const productId = orderfrom;
-      const result = await orderPlace(productId, selectedPayment === "UPI");
+      const result = await orderPlace(productId, false);
       if (result.status === "SUCCESS") {
         toast.success(result.message);
         setTimeout(() => {
@@ -69,7 +68,6 @@ const Checkout = () => {
 
   const handlePayment = (e) => {
     const selectedPaymentMode = e.target.value;
-    setSelectedPayment(selectedPaymentMode);
 
     switch (selectedPaymentMode) {
       case "Pay on Delivery":
@@ -85,6 +83,10 @@ const Checkout = () => {
         console.log("Invalid payment mode selected");
     }
   };
+  const [mBrand, setMbrand] = useState("");
+  const [mModel, setMmodel] = useState("");
+  const [mColor, setMcolor] = useState("");
+  const [mAvailable, setMavailable] = useState("");
 
   return (
     <>
@@ -135,8 +137,8 @@ const Checkout = () => {
                 className={style.paySelect}
                 name="Mode of payment"
                 onChange={handlePayment}
-                value={selectedPayment}
               >
+                <option value="Mode of payment">Mode of payment</option>
                 <option value="Pay on Delivery">Pay on Delivery</option>
                 <option value="UPI">UPI</option>
                 <option value="Card">Card</option>
@@ -144,42 +146,37 @@ const Checkout = () => {
             </div>
             <div className={style.reviewItems}>
               <span>3. Review items and delivery</span>
-              <span style={{ display: "flex" }}>
+              <span style={{ display: "flex", flexWrap: "wrap", width: "420px" }}>
                 {products === null ? (
                   <h1>Loading...</h1>
                 ) : orderfrom === "cart" ? (
-                  products.map((item, index) => {
-                    return (
-                      <div key={index}>
-                        <span
-                          style={{ width: "111px", height: "111px" }}
-                        >
-                          <img
-                            src={item.productDetails.images[imgShowcase]}
-                            alt="headphoneIcon"
-                            style={{
-                              width: "111px",
-                              height: "111px",
-                              border: "1px solid black",
-                            }}
-                          />
-                          <span>
-                            {item.productDetails.brand}{" "}
-                            {item.productDetails.model}
-                          </span>
-                          <span>Colour: {item.productDetails.color}</span>
-                          <span>{item.availale}</span>
-                          <span>Estimated delivery:</span>
-                          <span>Monday-FREE Standard Delivery</span>
-                        </span>
-                      </div>
-                    );
-                  })
+                  products.map((item, index) => (
+                    <div key={index} style={{ marginBottom: "20px" }}>
+                      <span style={{ width: "111px", height: "111px" }}>
+                        <img
+                          src={item.productDetails.images[0]}
+                          alt="headphoneIcon"
+                          style={{
+                            width: "111px",
+                            height: "111px",
+                            border: "1px solid black",
+                          }}
+
+                          onClick={() => {
+                            setMbrand(item.productDetails.brand);
+                            setMmodel(item.productDetails.model);
+                            setMcolor(item.productDetails.color);
+                            setMavailable(item.availale);
+                          }}
+                        />
+                      </span>
+                    </div>
+                  ))
                 ) : (
-                  <div>
+                  <div style={{ marginBottom: "20px" }}>
                     <span style={{ width: "111px", height: "111px" }}>
                       <img
-                        src={products.images[imgShowcase]}
+                        src={products.images[0]}
                         alt="headphoneIcon"
                         style={{
                           width: "111px",
@@ -187,24 +184,34 @@ const Checkout = () => {
                           border: "1px solid black",
                         }}
                       />
-                      <span>
-                        {products.brand} {products.model}
-                      </span>
-                      <span>Colour: {products.color}</span>
-                      <span>{products.availale}</span>
-                      <span>Estimated delivery:</span>
-                      <span>Monday-FREE Standard Delivery</span>
                     </span>
+                    {/* Example: Setting item details on click */}
+                    <button
+                      onClick={() => {
+                        setMbrand(products.brand);
+                        setMmodel(products.model);
+                        setMcolor(products.color);
+                        setMavailable(products.availale);
+                      }}
+                    >
+                      Set Details
+                    </button>
                   </div>
                 )}
               </span>
             </div>
+            <span>
+              {mBrand} {mModel}
+            </span>
+            <span>Colour: {mColor}</span>
+            <span>{mAvailable}</span>
+            <span>Estimated delivery:</span>
+            <span>Monday-FREE Standard Delivery</span>
           </div>
           <div className={style.orderPlaceSideSection}>
             <button onClick={handleOrderPlace}>Place your order</button>
             <span>
-              By placing your order, you agree to Musicart privacy notice and
-              conditions of use.
+              By placing your order, you agree to Musicart privacy notice and conditions of use.
             </span>
             <div>
               <h5>Order Summary</h5>
@@ -218,9 +225,7 @@ const Checkout = () => {
               </div>
               <div>
                 <span>Order Total:</span>
-                <span>
-                  ₹{amount !== null ? (amount + 45).toFixed(2) : ""}
-                </span>
+                <span>₹{amount !== null ? (amount + 45).toFixed(2) : ""}</span>
               </div>
             </div>
           </div>
@@ -228,12 +233,9 @@ const Checkout = () => {
         <div className={style.orderSummaryBottomSide}>
           <button onClick={handleOrderPlace}>Place your order</button>
           <div>
+            <span>Order Total : ₹{amount !== null ? (amount + 45).toFixed(2) : ""}</span>
             <span>
-              Order Total : ₹{amount !== null ? (amount + 45).toFixed(2) : ""}
-            </span>
-            <span>
-              By placing your order, you agree to Musicart privacy notice and
-              conditions of use.
+              By placing your order, you agree to Musicart privacy notice and conditions of use.
             </span>
           </div>
         </div>

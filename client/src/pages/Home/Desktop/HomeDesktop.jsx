@@ -21,7 +21,7 @@ const Home = () => {
     localStorage.getItem("musicArtToken") ? true : false
   );
   const cartRef = useRef(null);
-  const [view, setView] = useState("list");
+  const [view, setView] = useState("grid");
   const [product, setProduct] = useState(null);
   const [filterQuery, setFilterQuery] = useState({});
   const productFetch = async () => {
@@ -102,6 +102,12 @@ const Home = () => {
     } else {
       setFilterQuery({ ...filterQuery, [name]: value });
     }
+  };
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
   };
 
   return (
@@ -368,9 +374,40 @@ const Home = () => {
           bottom: "20px",
           right: "20px",
           width: "91px",
+          cursor: "pointer",
         }}
+        onClick={togglePopup}
         className={style.hideMe}
       />
+      {showPopup && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "121px",
+          right: "20px",
+            backgroundColor: "#ffffff",
+            padding: "20px",
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+            borderRadius: "8px",
+            zIndex: "2",
+          }}
+        >
+          <p>This is a popup!</p>
+          <button
+            style={{
+              backgroundColor: "#007bff",
+              color: "#fff",
+              padding: "8px 16px",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+            }}
+            onClick={togglePopup}
+          >
+            Close
+          </button>
+        </div>
+      )}
     </>
   );
 };
