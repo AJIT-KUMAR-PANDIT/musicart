@@ -1,48 +1,59 @@
-import style from "./Header.module.css";
-import phoneIcon from "../../assets/phoneIcon.svg";
-import musicIcon from "../../assets/musicIcon.svg";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import style from "./header.module.css";
+import { FiPhoneCall } from "react-icons/fi";
+import { user, userInfoToggle, userToggle } from "../../Redux/User/UserSlice";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 const Header = () => {
-  const redirect = useNavigate();
-  const [login, setLogin] = useState(
-    localStorage.getItem("musicArtToken") ? true : false
-  );
+  const [userInfo, setUserInfo] = useState({});
+  const navigate = useNavigate();
+  const loginUser = useSelector(user);
+  const toggle = useSelector(userInfoToggle);
+  const toggle1 = useSelector(userToggle);
+
+  const handleNavigateUserToNextPage = (route) => {
+    navigate(route);
+  };
+
+  useEffect(() => {
+    if (loginUser?.name) {
+      setUserInfo(loginUser);
+    } else {
+      setUserInfo({});
+    }
+  }, [toggle, toggle1]);
+
   return (
-    <header className={style.desktopHeader}>
-      <div className={style.leftBox}>
-        <img src={phoneIcon} alt="phoneIcon" />
-        <span>912121131313</span>
+    <section className={style.headerContainer}>
+      <div className={style.headerSection}>
+        <div className={style.header1}>
+          <span>
+            <FiPhoneCall size={23} />
+          </span>
+          <span>912121131313</span>
+        </div>
+
+        <div className={style.header2}>
+          <span>Get 50% off on selected items</span>
+          <span className={style.line}></span>
+          <span>Shop Now</span>
+        </div>
+        <div className={style.header3}>
+          {!userInfo?.name && (
+            <>
+              <span onClick={() => handleNavigateUserToNextPage("/sign-in")}>
+                Login
+              </span>
+              <span className={style.line}></span>
+              <span onClick={() => handleNavigateUserToNextPage("/sign-up")}>
+                SignUp
+              </span>
+            </>
+          )}
+        </div>
       </div>
-      <div className={style.middleBox}>
-        <span>Get 50% off on selected items | Shop Now</span>
-      </div>
-      <div className={style.rightBox}>
-        {login ? (
-          <button
-            onClick={() => {
-              setLogin(false);
-              localStorage.removeItem("musicArtToken");
-            }}
-          >
-            Logout
-          </button>
-        ) : (
-          <>
-            <a href="/signin">Login</a> | <a href="/signup">Signup</a>
-          </>
-        )}
-      </div>
-      <div
-        className={style.mobileHeader}
-        onClick={() => {
-          redirect("/");
-        }}
-      >
-        <img src={musicIcon} alt="musicIcon" />
-        <span>Musicart</span>
-      </div>
-    </header>
+    </section>
   );
 };
 

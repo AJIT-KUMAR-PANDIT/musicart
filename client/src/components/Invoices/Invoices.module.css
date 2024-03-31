@@ -1,0 +1,225 @@
+.invoices_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+.empty {
+  width: 100%;
+  height: 50dvh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+}
+.empty > span {
+  color: #b52b00;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.empty > button {
+  background-color: #2e0052;
+  width: 10rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+}
+.invoices_section {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 3rem;
+}
+.invoices_section_blur {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 3rem;
+  filter: blur(4px);
+}
+.logo_text {
+  font-size: 1.5rem;
+  color: #2e0052;
+  font-weight: 500;
+  margin-left: -0.8rem;
+}
+.invoices_up {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.invoices_nav_details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.invoices_nav_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+}
+.invoices_nav_flex > span > img {
+  width: 2.5rem;
+}
+.view_invoices_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.3rem;
+  background-color: #1d7000;
+  color: white;
+  padding: 6px 20px;
+  border-radius: 1.5rem;
+  width: 7rem;
+  height: 2rem;
+  font-size: 1rem;
+}
+.invoices_nav {
+  background-color: #2e0052;
+  width: 10rem;
+  color: white;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.invoices_box {
+  width: 100%;
+  min-height: 45dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+textarea {
+  resize: none;
+}
+.invoices_sec_info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #797979;
+  border-bottom: 1px solid #797979;
+  padding: 1rem 0;
+}
+.flex_box {
+  width: max-content;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  column-gap: 1rem;
+}
+.invoices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+.invoices > span {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.delete_all_invoice_container {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+.delete_all_invoice_container > button {
+  width: 12rem;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  background-color: #b52b00;
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.view {
+  width: max-content;
+}
+.view > button {
+  display: inline-block;
+  width: 10rem;
+  height: 2rem;
+  background-color: #2e0052;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.flex_box > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  column-gap: 0.4rem;
+  margin-bottom: 0.3rem;
+}
+.delivery_info {
+  font-size: 0.9rem;
+  word-wrap: break-word;
+}
+.flex_box > span {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 700px) {
+  .invoices_up {
+    display: none;
+  }
+  .view > button {
+    display: inline-block;
+    width: 6rem;
+    height: 2rem;
+    background-color: #2e0052;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+  }
+  .flex_box {
+    max-width: 13rem;
+    width: 100%;
+  }
+  .user_name {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .delivery_info {
+    font-size: 0.8rem;
+  }
+  .flex_box > span {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .delete_all_invoice_container > button {
+    width: 100%;
+    display: flex;
+    height: 2.5rem;
+    justify-content: center;
+    background-color: #b52b00;
+    border: none;
+    color: white;
+    border-radius: 0.5rem;
+  }
+}
+.invoices_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+}

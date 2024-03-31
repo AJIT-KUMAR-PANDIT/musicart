@@ -1,57 +1,22 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
-const jwt = require("jsonwebtoken");
-const cors = require("cors");
-
-const app = express();
-app.use(cors({ origin: "*" }));
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import userRouter from "./Routes/User.js";
+import { connectDB } from "./config/connectDB.js";
+import productRouter from "./Routes/Product.js";
+import cartRouter from "./Routes/cart.js";
+import orderRouter from "./Routes/order.js";
 dotenv.config();
+const server = express();
+server.use(express.json());
+server.use(cors());
+connectDB();
 
-const auth = require("./routes/auth");
-const product = require("./routes/product");
-const invoice = require("./routes/invoice");
+server.use("/api/v1/user", userRouter);
+server.use("/api/v1/products", productRouter);
+server.use("/api/v1/cart", cartRouter);
+server.use("/api/v1/order", orderRouter);
 
-app.get("/health", (req, res) => {
-  res.status(200).json({
-    service: "Musicart",
-    status: "Active",
-    time: new Date(),
-  });
-});
+const PORT = process.env.PORT;
 
-app.use(auth);
-app.use(product);
-app.use(invoice);
-
-//error handler middleware
-app.use((req, res, next) => {
-  const err = new Error("page not found");
-  err.status = 404;
-  next(err);
-});
-
-//error handler
-app.use((err, req, res, next) => {
-  res.status(err.status || 500).json({
-    status: "FAILED",
-    message: err.message,
-  });
-});
-
-//server listening
-app.listen(process.env.PORT, (error) => {
-  mongoose
-    .connect(process.env.MONGODB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
-    .then(
-      console.log(`server is running on http://localhost:${process.env.PORT}`)
-    )
-    .catch((err) => console.log(err));
-});
+server.listen(PORT, () => console.log(`Server is running at port ${PORT}`));

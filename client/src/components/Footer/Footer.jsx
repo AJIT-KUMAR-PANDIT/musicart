@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Footer.module.css";
-const Footer = () => {
+
+const Footer = ({ showFooterForMobile }) => {
   return (
-    <footer className={style.footer}>
-      <h1>Musicart | All rights reserved</h1>
-    </footer>
+    <section
+      className={`${
+        showFooterForMobile === "no"
+          ? style.footerContainerOff
+          : style.footerContainerOn
+      }`}
+    >
+      <span>Musicart | All rights reserved</span>
+    </section>
   );
 };
 
