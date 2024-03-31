@@ -13,6 +13,7 @@ import {
   getProductDetails,
   orderPlace,
 } from "../../apis/product";
+import { createInvoice } from "../../apis/invoice";
 
 const Checkout = () => {
   const redirect = useNavigate();
@@ -22,6 +23,9 @@ const Checkout = () => {
   const [mBrand, setMbrand] = useState("");
   const [mModel, setMmodel] = useState("");
   const [mColor, setMcolor] = useState("");
+  const [customerName, setCustomerName] = useState("");
+  const [customerAddress, setCustomerAddress] = useState("");
+  const [selectedPaymentMode, setSelectedPaymentMode] = useState("");
 
   useEffect(() => {
     if (orderfrom === "cart") {
@@ -54,10 +58,21 @@ const Checkout = () => {
   }, [products]);
 
   const handleOrderPlace = async () => {
+    if (!customerAddress) {
+      toast.error("Please enter a delivery address.");
+      return;
+    }
+
+    if (!selectedPaymentMode || selectedPaymentMode === "Mode of payment") {
+      toast.error("Please select a payment mode.");
+      return;
+    }
+
     if (orderfrom === "cart") {
       const result = await orderPlace(false, true);
       if (result.status === "SUCCESS") {
         toast.success(result.message);
+        createInvoiceToDatabase();
         setTimeout(() => {
           redirect("/ordersuccess");
         }, 2000);
@@ -69,6 +84,7 @@ const Checkout = () => {
       const result = await orderPlace(productId, false);
       if (result.status === "SUCCESS") {
         toast.success(result.message);
+        createInvoiceToDatabase();
         setTimeout(() => {
           redirect("/ordersuccess");
         }, 2000);
@@ -79,9 +95,10 @@ const Checkout = () => {
   };
 
   const handlePayment = (e) => {
-    const selectedPaymentMode = e.target.value;
+    const selectedMode = e.target.value;
+    setSelectedPaymentMode(selectedMode);
 
-    switch (selectedPaymentMode) {
+    switch (selectedMode) {
       case "Pay on Delivery":
         console.log("Selected payment mode: Pay on Delivery");
         break;
@@ -93,6 +110,21 @@ const Checkout = () => {
         break;
       default:
         console.log("Invalid payment mode selected");
+    }
+  };
+
+  const createInvoiceToDatabase = async () => {
+    const invoiceData = {
+      invoiceId: [],
+      name: customerName,
+      address: customerAddress,
+    };
+
+    const result = await createInvoice(invoiceData);
+    if (result.status === "SUCCESS") {
+      console.log("Invoice created successfully:", result);
+    } else {
+      console.error("Error creating invoice:", result);
     }
   };
 
@@ -136,6 +168,8 @@ const Checkout = () => {
                     border: "1px solid black",
                   }}
                   className={style.addr}
+                  value={customerAddress}
+                  onChange={(e) => setCustomerAddress(e.target.value)}
                 ></textarea>
               </span>
             </div>
