@@ -5,11 +5,28 @@ import musicIcon from "../../../assets/musicIcon.svg";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import InvoiceCard from "../../../components/InvoiceCard/InvoiceCard";
+import { getInvoices } from "../../../apis/invoice";
 
 const DesktopInvoice = () => {
   const redirect = useNavigate();
-  const [products, setProducts] = useState(null);
+  const [invoices, setInvoices] = useState([]);
 
+  useEffect(() => {
+    fetchInvoices();
+  }, []);
+
+  const fetchInvoices = async () => {
+    try {
+      const response = await getInvoices();
+      if (response.status === "SUCCESS") {
+        setInvoices(response.data);
+      } else {
+        console.error("Failed to fetch invoices:", response.message);
+      }
+    } catch (error) {
+      console.error("Error fetching invoices:", error);
+    }
+  };
 
   return (
     <>
@@ -38,9 +55,15 @@ const DesktopInvoice = () => {
         </div>
         <br/><br/>
         <div style={{display:"flex",justifyContent:"center"}}>
-        <InvoiceCard/>
+          {invoices.map((invoice) => (
+            <InvoiceCard
+              key={invoice._id}
+              name={invoice.name}
+              address={invoice.address}
+            />
+          ))}
         </div>
-              </main>
+      </main>
       <section className={style.footer}>
         <Footer />
       </section>

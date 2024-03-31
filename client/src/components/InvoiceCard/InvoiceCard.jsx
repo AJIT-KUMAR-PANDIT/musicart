@@ -3,7 +3,7 @@ import styleInvoiceCard from "./InvoiceCard.module.css";
 import invoice from "../../assets/invoiceLight.svg";
 import lineInvoice from "../../assets/lineInvoice.svg";
 
-const InvoiceCard = () => {
+const InvoiceCard = ({ name, address }) => {
   return (
     <>
       <div className={styleInvoiceCard.container}>
@@ -12,12 +12,11 @@ const InvoiceCard = () => {
             <img src={invoice} alt="invoiceLight" />
           </div>
           <div>
-            <div className={styleInvoiceCard.name}>Akash Patel</div>
+            <div className={styleInvoiceCard.name}>{name}</div>
             <div
               className={styleInvoiceCard.address}
-              
             >
-              104 kk hh nagar, Lucknow Uttar Pradesh 226025
+              {address}
             </div>
           </div>
         </div>

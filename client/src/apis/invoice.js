@@ -3,7 +3,7 @@ const backendURL = process.env.REACT_APP_BACKEND_URL;
 
 export const createInvoice = async (invoiceData) => {
   try {
-    const requrl = `${backendURL}/invoices`;
+    const requrl = `${backendURL}/addinvoices`;
     const response = await axios.post(requrl, invoiceData);
     return response.data;
   } catch (error) {
@@ -15,7 +15,7 @@ export const createInvoice = async (invoiceData) => {
 
 export const getInvoices = async () => {
   try {
-    const requrl = `${backendURL}/invoices`;
+    const requrl = `${backendURL}/allinvoices`;
     const response = await axios.get(requrl);
     return response.data;
   } catch (error) {

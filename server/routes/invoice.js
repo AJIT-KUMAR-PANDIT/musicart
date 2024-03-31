@@ -3,7 +3,7 @@ const router = express.Router();
 const Invoice = require("../models/invoice");
 
 // Create a new invoice
-router.post("/", async (req, res) => {
+router.post("/addinvoices", async (req, res) => {
     try {
       const { invoiceId, name, address } = req.body;
   
@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
   });
 
   // Get all invoices
-router.get("/", async (req, res) => {
+router.get("/allinvoices", async (req, res) => {
     try {
       const invoices = await Invoice.find();
       res.status(200).json({ status: "SUCCESS", data: invoices });
@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
   });
 
   // Get a single invoice by ID
-router.get("/:id", async (req, res) => {
+router.get("/invoices/:id", async (req, res) => {
     try {
       const invoice = await Invoice.findById(req.params.id);
       if (!invoice) {
