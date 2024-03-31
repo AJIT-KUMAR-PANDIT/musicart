@@ -19,6 +19,9 @@ const Checkout = () => {
   const { orderfrom } = useParams();
   const [products, setProducts] = useState(null);
   const [amount, setAmount] = useState(null);
+  const [mBrand, setMbrand] = useState("");
+  const [mModel, setMmodel] = useState("");
+  const [mColor, setMcolor] = useState("");
 
   useEffect(() => {
     if (orderfrom === "cart") {
@@ -39,7 +42,16 @@ const Checkout = () => {
         }
       });
     }
-  }, []);
+  }, [orderfrom]);
+
+  useEffect(() => {
+    if (products !== null && products.length > 0) {
+      const firstProduct = products[0];
+      setMbrand(firstProduct.productDetails.brand);
+      setMmodel(firstProduct.productDetails.model);
+      setMcolor(firstProduct.productDetails.color);
+    }
+  }, [products]);
 
   const handleOrderPlace = async () => {
     if (orderfrom === "cart") {
@@ -83,10 +95,6 @@ const Checkout = () => {
         console.log("Invalid payment mode selected");
     }
   };
-  const [mBrand, setMbrand] = useState("");
-  const [mModel, setMmodel] = useState("");
-  const [mColor, setMcolor] = useState("");
-  const [mAvailable, setMavailable] = useState("");
 
   return (
     <>
@@ -146,7 +154,7 @@ const Checkout = () => {
             </div>
             <div className={style.reviewItems}>
               <span>3. Review items and delivery</span>
-              <span style={{ display: "flex", flexWrap: "wrap", width: "420px" }}>
+              <span style={{ display: "flex", flexWrap: "wrap", width: "420px", gap:"11px" }}>
                 {products === null ? (
                   <h1>Loading...</h1>
                 ) : orderfrom === "cart" ? (
@@ -166,7 +174,6 @@ const Checkout = () => {
                             setMbrand(item.productDetails.brand);
                             setMmodel(item.productDetails.model);
                             setMcolor(item.productDetails.color);
-                            setMavailable(item.availale);
                           }}
                         />
                       </span>
@@ -185,29 +192,32 @@ const Checkout = () => {
                         }}
                       />
                     </span>
-                    {/* Example: Setting item details on click */}
                     <button
                       onClick={() => {
                         setMbrand(products.brand);
                         setMmodel(products.model);
                         setMcolor(products.color);
-                        setMavailable(products.availale);
                       }}
                     >
                       Set Details
                     </button>
                   </div>
                 )}
-              </span>
-            </div>
-            <span>
+           <div>
+           <span className={style.mBrand} style={{color:"black"}}> 
               {mBrand} {mModel}
             </span>
-            <span>Colour: {mColor}</span>
-            <span>{mAvailable}</span>
-            <span>Estimated delivery:</span>
-            <span>Monday-FREE Standard Delivery</span>
-          </div>
+            <br/>
+            <span className={style.mColor}>Colour: {mColor}</span>
+            <br/>
+            <span className={style.mDelivery}  style={{color:"black"}}>Estimated delivery:</span>
+            <br/>
+            <span className={style.mDelivery}  style={{color:"black"}}>Monday-FREE Standard Delivery</span>
+          
+           </div>
+              </span>
+            </div>
+           </div>
           <div className={style.orderPlaceSideSection}>
             <button onClick={handleOrderPlace}>Place your order</button>
             <span>

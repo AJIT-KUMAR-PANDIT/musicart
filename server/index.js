@@ -14,6 +14,7 @@ dotenv.config();
 
 const auth = require("./routes/auth");
 const product = require("./routes/product");
+const invoice = require("./routes/invoice");
 
 app.get("/health", (req, res) => {
   res.status(200).json({
@@ -25,6 +26,7 @@ app.get("/health", (req, res) => {
 
 app.use(auth);
 app.use(product);
+app.use(invoice);
 
 //error handler middleware
 app.use((req, res, next) => {
