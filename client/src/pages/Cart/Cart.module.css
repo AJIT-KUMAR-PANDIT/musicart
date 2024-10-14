@@ -1,0 +1,261 @@
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    height:100%;
+  }
+  .cartContainer {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      margin-top:40px;
+    }
+    
+    .BackLink .backButton{
+      float:left;
+      margin-top:10px;
+      
+    }
+    .backButton {
+      background-color: #2e0052;
+      color: white;
+      border: none;
+      outline:none;
+      border-radius: 6px;
+      font-size:16px;
+      padding: 8px 16px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    
+    .bagIcon{
+      font-size: 40px;
+  
+    }
+    .cartHeader {
+      margin-top:10px;
+      align-items:center;
+      display: flex;
+      justify-content: center;
+    }
+    .cartHeader h2{
+      margin:0;
+    }
+    .cartDivison{
+      display:flex;
+  
+    }
+    .cartItems {
+      width:70%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .cartItem {
+      display:grid;
+      grid-template-columns: repeat(5,1fr);
+      column-gap: 30px;
+      margin: 10px;
+      padding: 10px;
+    }
+    
+    .itemImage {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-right: 10px;
+      padding:10px;
+      border:1px solid #2e0052;
+      border-radius: 6px;
+    }
+    
+    .itemDetails {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      column-gap: 10px;
+      justify-content: space-between;
+    }
+    .itemtitles{
+      display:flex;
+      flex-direction: column;
+      width:200px;
+      text-align: start;
+      padding-left:10px;
+    }
+    .itemtitles h3 {
+      margin-top:0px;
+      margin-bottom:0px;
+    }
+    .itemtitles p{
+      margin-top:5px;
+      margin-bottom:0px;
+    }
+    .itemprice{
+      width:150px;
+    }
+    .itemprice h3{
+      margin-top:0px;
+    }
+    
+    .quantityControl {
+      width:150px;
+    }
+    .quantityControl h3{
+      margin-top:0px;
+    }
+    .totalprice h3{
+      margin-top:0px;
+    }
+    
+    .quantityControl button {
+      background-color: #ccc;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    
+    .quantityControl span {
+      margin: 0 10px;
+    }
+    
+    .cartSummary {
+      width:30%;
+      display: flex;
+      flex-direction: column;
+      padding-left:20px;
+      text-align: start;
+      margin-top: 20px;
+    }
+    
+    .priceDetails {
+      margin-bottom: 10px;
+    }
+    .totalitems{
+      display:flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .prices{
+      display:flex;
+      justify-content: space-between;
+    }
+    .totalAmount {
+      display:flex;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .placeOrderButton {
+      width:300px;
+      background: #FFD600;
+      color: black;
+      border: none;
+      outline: none;
+      border-radius: 6px;
+      font-size: 13px;
+      padding: 8px 16px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+  
+    /* Cart.module.css */
+  @media (max-width: 767px) {
+    .mainContainer{
+      margin:0;
+      padding:0;
+      box-sizing: border-box;
+      margin-bottom:60px;
+    }
+    .cartContainer {
+      margin:0;
+      padding:0px;
+    }
+    .BackLink{
+      float:left;
+    }
+  .cartHeader{
+    display:none;
+  }
+    .arrowIcon{
+      width:4%;
+      height:4%;
+      border-radius: 50%;
+      float:left;
+  
+    }
+    .cartHeader {
+      text-align: center;
+    }
+  .cartDivision{
+    display:flex;
+    flex-direction: column;
+    margin:10px;
+  }
+  .cartMobileView{
+    padding:10px;
+  }
+  
+    .cartItem {
+       display:flex;
+      align-items: center;
+      column-gap:0;
+      padding:0;
+    }
+    .itemDetails{
+      display:flex;
+      flex-direction: column;
+    }
+  
+    .itemImage {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+  
+    .itemDetails {
+      text-align: center;
+      margin-top:30px;
+    }
+    .itemtitles{
+      display:flex;
+      flex-direction: column;
+      text-align: start;
+      width:200px;
+    }
+    .itemtitles h3 {
+      font-size:16px;
+      margin-top:3px;
+    }
+    .itemtitles p{
+      margin-top:5px;
+      margin-bottom:0px;
+    } 
+  
+  
+    .quantityControl {
+      margin: 10px 0;
+    }
+  
+    .cartSummary {
+      padding: 10px;
+    }
+  
+    .totalprice{
+      margin-top:20px;
+      margin-bottom:5px;
+    }
+    .priceDetails,
+    .totalAmount {
+      text-align: start;
+    }
+  
+    .placeOrderButton {
+      width: 100%;
+      height:40px;
+      font-size:15px;
+  
+    }
+  }

@@ -1,0 +1,227 @@
+/* Invoice.module.css */
+
+.mainContainer {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height:100%;
+  }
+  
+  .invoiceContainer {
+    margin: 20px;
+    margin-top: 40px;
+  }
+  
+  .BackLink {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .backButton {
+    background-color: #2e0052;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 6px;
+  }
+  
+  .invoiceHeader {
+    text-align: center;
+  }
+  
+  .invoiceContent{
+    display:flex;
+  
+  }
+  .invoiceDivision{
+    width:70%;
+  
+  }
+  .orderSummary{
+    width:200px;
+  }
+  .invoiceSection {
+    margin-bottom: 20px;
+    display:flex;
+    justify-content: space-between;
+  }
+  
+  .invoiceSection h3 {
+    color: #b52b00;
+  }
+  
+  .cartItems {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .cartItem {
+    display: flex;
+    margin: 10px;
+    border: 1px solid #2e0052;
+    border-radius: 5px;
+    padding: 10px;
+    flex-direction: column;
+  }
+  
+  .itemImage {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .itemDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: start;
+  }
+  
+  .selectedItemDetails {
+    margin-left: 20px;
+    text-align: start;
+  }
+  
+  .orderSummary {
+    float: right;
+    width: 300px;
+    height: 300px;
+    border-radius: 6px;
+    border: 2px solid #e1e1e1;
+    margin: 20px;
+    margin-top: 0px;
+    padding: 20px;
+  }
+  
+  .orderSummary h3 {
+    font-size: 20px;
+    text-align: start;
+  }
+  
+  .orderSummary h4 {
+    color: #b52b00;
+  }
+  
+  .orderSummary p {
+    margin-top: 5px;
+  }
+  .ordercheck{
+    display:flex;
+    justify-content: space-between;
+  }
+  
+  .placeOrderButton {
+    width: 100%;
+    background: #ffd600;
+    height: 50px;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 5px;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 767px) {
+    .mainContainer {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      margin-bottom:60px;
+    }
+  
+    .invoiceContainer {
+      margin: 0px;
+      margin-top: 0px;
+    }
+  
+    .BackLink {
+      float: left;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  
+    .backButton {
+      width: 100%;
+    }
+  
+    .invoiceHeader {
+      text-align: center;
+    }
+  .invoiceContent{
+    display:flex;
+    flex-direction: column;
+    margin:10px;
+  }
+  
+    .invoiceSection {
+      margin-bottom: 20px;
+    }
+  
+    .invoiceSection h3 {
+      color: #b52b00;
+    }
+  
+    .cartItems {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+  
+    .cartItem {
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+      border: 1px solid #2e0052;
+      border-radius: 5px;
+      padding: 10px;
+    }
+  
+    .itemImage {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+  
+    .itemDetails {
+      text-align: center;
+    }
+  
+    .selectedItemDetails {
+      margin-left: 0px;
+    }
+  
+    .orderSummary {
+      width: 100%;
+      height: auto;
+      margin: 0;
+      border: none;
+      padding:0px;
+    }
+  
+    .orderSummary h3 {
+      font-size: 20px;
+      text-align: start;
+    }
+  
+    .orderSummary h4 {
+      color: #b52b00;
+    }
+  
+    .orderSummary p {
+      margin: 0;
+      margin-top: 5px;
+    }
+  
+    .placeOrderButton {
+      width: 100%;
+    }
+  }
+  

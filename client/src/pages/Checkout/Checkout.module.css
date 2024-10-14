@@ -1,0 +1,258 @@
+.mainContainer{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    height:100%;
+   }
+   
+   .checkoutContainer {
+     
+       margin:20px;
+       margin-top: 40px;
+       
+     }
+     
+     .BackLink{
+       float:left;
+       margin-top:10px;
+       margin-bottom: 10px;
+     }
+     .backButton {
+       background-color: #2e0052;
+       color: white;
+       border: none;
+       padding: 8px 16px;
+       cursor: pointer;
+       margin-bottom: 20px;
+       border-radius: 6px;
+     }
+     .checkoutHeader {
+       text-align: center;
+       
+     }
+     .checkoutContent{
+       display:flex;
+   
+     }
+     .checkoutDivision{
+       width:60%;
+   
+     }
+     
+     .checkoutSection {
+       margin-bottom: 20px;
+       display:flex;
+       justify-content: space-between;
+       
+   
+     }
+   
+     .checkoutSection h3{
+       color: #B52B00;
+       
+     }
+   
+     
+     
+     .addressInput {
+       width: 50%;
+       height:100px;
+       font-size: 16px;
+       color: #797979;
+       border: 1px solid #919191;
+       border-radius: 4px;
+   
+     }
+     
+     .paymentSelect {
+       width: 50%;
+       padding: 8px;
+       font-size: 16px;
+       border: 1px solid #919191;
+       border-radius: 6px;
+   
+     }
+     
+     .cartItems {
+       display: flex;
+       flex-wrap: wrap;
+       
+     }
+     
+     .cartItem {
+       display: flex;
+       margin: 10px;
+       border: 1px solid #2e0052;
+       border-radius: 5px;
+       padding: 10px;
+     }
+     
+     .itemImage {
+       width: 80px;
+       height: 80px;
+       object-fit: cover;
+       margin-right: 10px;
+     }
+     
+     .itemDetails {
+       display: flex;
+       flex-direction: column;
+     }
+     .ordercheckout{
+       display:flex;
+       border: 2px solid #E1E1E1;
+       border-radius: 6px;
+       padding:10px;
+     }
+     .ordercheckout button{
+       font-size:16px;
+       background: #FFD600;
+       color: black;
+       border: none;
+       padding: 8px 16px;
+       cursor: pointer;
+       border-radius: 6px;
+       width:200px;
+       height:40px;
+       margin:0px;
+     }
+     .ordercheckout h4{
+       color: #B52B00;
+       margin:0px;
+     }
+     .ordercheckout .terms{
+       display: flex;
+       flex-direction: column;
+       text-align: start;
+       margin-left:10px;
+     }
+     .terms span{
+       font-family: Roboto;
+       font-size: 14px;
+       font-weight: 400;
+       line-height: 26px;
+     }
+     
+     .orderSummary {
+       float: right;
+       width:300px;
+       height:300px;
+       border-radius: 6px;
+       border: 2px solid #E1E1E1;
+       margin: 20px;
+       margin-top:0px;
+       padding: 20px;
+     }
+     .orderSummary span{
+       font-family: Roboto;
+   font-size: 12px;
+   font-weight: 400;
+   line-height: 15px;
+   text-align: center
+   
+     }
+     .orderSummary h3{
+       font-size: 20px;
+       text-align: start;
+     }
+     .orderSummary h4{
+       color: #B52B00;
+   
+     }
+     .orderPrice{
+   
+       justify-content: space-between;
+       color: #797979;
+   
+     }
+     .ordercheck{
+       display:flex;
+       justify-content: space-between;
+     }
+     .ordercheck p{
+       margin:0;
+       margin-top:5px;
+     }
+     
+     .placeOrderButton {
+       width:100%;
+       background: #FFD600;
+       height:50px;
+       color: black;
+       border: none;
+       padding: 8px 16px;
+       cursor: pointer;
+       margin-top: 5px;
+       border-radius: 6px;
+       font-size: 16px;
+     }
+   
+     /* Checkout.module.css */
+   @media (max-width: 767px) {
+     .mainContainer{
+       margin:0;
+       padding:0;
+       box-sizing: border-box;
+       margin-bottom:60px;
+       
+     }
+   .checkoutContainer{
+     margin-top:0px;
+     margin:0px;
+   }
+     
+     .checkoutDivision{
+       width:100%;
+     }
+   
+     .checkoutContent{
+       display:flex;
+       flex-direction: column;
+       margin:0px 10px;
+     }
+     .checkoutHeader {
+       text-align: center;
+     }
+    .checkoutSection{
+     display:flex;
+     flex-direction: column;
+     width:100%;
+     text-align: start;
+    }
+    .ordercheckout{
+     display: none;
+   
+    }
+     .addressInput,
+     .paymentSelect {
+       width: 100%;
+     }
+   
+     .cartItem {
+       flex-direction: column;
+       align-items: center;
+     }
+   
+     .itemImage {
+       width: 60px;
+       height: 60px;
+       margin-bottom: 10px;
+     }
+   
+     .itemDetails {
+       text-align: center;
+     }
+   
+     .orderSummary {
+       text-align: center;
+       margin:0;
+       border:none;
+     }
+     .orderSummary span{
+       display: none;
+     }
+   
+     .placeOrderButton {
+       width: 100%;
+     }
+   }

@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Roboto',sans-serif;
+}
+.signupContainer{
+  height:100vh;
+  color:black;
+  overflow: hidden;
+
+}
+.musiclogo h3{
+  font-family: 'Roboto',sans-serif;
+  font-size:30px;
+  color:#2e0052;
+}
+
+.mainContainer{
+  width: 80%; 
+  max-width: 400px; 
+  margin: 20px auto;
+  border:1px solid #d9d9d9;
+  border-radius:10px;
+  padding:0 30px;
+  
+
+}
+.musiclogo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainContainer h2{
+  font-family: 'Roboto',sans-serif;
+  font-size:28px;
+  text-align: start;
+  font-weight:400;
+  color:black;
+  margin:10px 0;
+  
+}
+
+
+.formContainer{
+  justify-content: center;
+  text-align: center;
+  
+
+}
+
+
+
+.formContainer label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: 'Roboto',sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color:black;
+  text-align: start;
+}
+
+.formContainer input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #b6b6b6;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Roboto',sans-serif;
+  outline:none;
+  
+ 
+}
+
+
+.formContainer button {
+  width:100%;
+  padding: 10px 20px;
+  background-color: #2e0052;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Roboto',sans-serif;
+  font-size: 16px;
+  margin-top:5px;
+  margin-bottom: 5px;
+
+}
+
+.formContainer button:hover {
+  background-color: #4d007f;
+}
+.formContainer .termsArea{
+ font-family: 'Roboto',sans-serif;
+ font-size: 14px;
+ font-weight: 500;
+ text-align: start;
+ color:black;
+
+
+}
+.termsArea .para{
+  margin:10px 0;
+  font-family: 'Roboto',sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.errorMsg {
+  color: #ff0000; 
+  font-size: 14px;
+  margin-top: 5px;
+}
+.error {
+  border: 1px solid #ff0000;
+  background-color: #ffe0e0; 
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .mainContainer{
+    width:80%;
+    padding: 0 20px;
+  }
+}
+
+
+
+
+
+

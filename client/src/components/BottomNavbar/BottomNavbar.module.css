@@ -1,0 +1,52 @@
+
+
+.bottomNavContainer {
+    display: none; /* Initially hidden on larger screens */
+  }
+  
+  @media (max-width: 768px) {
+    .bottomNavContainer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: white;
+      border: 1px solid #C8C8C8;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999; /* Ensure the bottom navigation is on top */
+    }
+  
+    .navItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #2e0052;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  
+    .navIcon {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+  
+    .navLabel {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+    }
+    .itemCount{
+      position: absolute;
+      background: green;
+      color:white;
+      border-radius: 50%;
+      font-size: 10px;
+      width:5%;
+      height:25%;
+      
+
+
+    }
+  }
