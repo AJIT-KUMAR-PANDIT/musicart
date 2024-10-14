@@ -5,14 +5,14 @@ const orderSchema = new mongoose.Schema({
 
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // Reference to the User model
+    ref: 'Users', // Reference to the User model
     required: true,
   },
   cartItems: [
     {
       productId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product', // Reference to the Product model
+        ref: 'Products', // Reference to the Product model
         required: true,
       },
       quantity: {
@@ -26,7 +26,7 @@ const orderSchema = new mongoose.Schema({
     {
       productId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product',
+        ref: 'Products',
         required: true,
       },
       name: { type: String },
@@ -57,6 +57,6 @@ const orderSchema = new mongoose.Schema({
   },
 });
 
-const Order = mongoose.model('Order', orderSchema);
+const Order = mongoose.model('Orders', orderSchema);
 
 module.exports = Order;

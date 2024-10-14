@@ -6,6 +6,6 @@ const feedbackSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-const Feedback = mongoose.model("Feedback", feedbackSchema);
+const Feedback = mongoose.model("Feedbacks", feedbackSchema);
 
 module.exports = Feedback;
